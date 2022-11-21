@@ -1,0 +1,70 @@
+adress_book = {
+    "Anna" : {
+    "name" : "Anna",
+    "phone" : "0123456",
+    "email" : "am@gmx.de"
+  },
+    "Emil" : {
+    "name" : "Emil",
+    "phone" : "0123456",
+    "email" : "agfm@gmx.de"
+  },
+    "David" : {
+    "name" : "David",
+    "phone" : "0123456",
+    "email" : "adfm@gmx.de"
+  },
+}
+
+def addName(tmpDict):
+  name = input("Please enter a name: ")
+  if name in tmpDict:
+    print(f" {name} you have aready {tmpDict[name]}")
+    name = input("Please enter another name: ")
+  else:
+    phone = input("Please enter a phone number: ")
+    email = input("Please enter an E-mail: ")
+    tmpDict [name] = {}
+    tmpDict [name]['name'] = name
+    tmpDict [name]['phone']= phone
+    tmpDict [name]['email']= email
+    return tmpDict
+
+def editName (tmpDict):
+   print ("Choose the name which you want to edit")
+   print(adress_book.keys())
+   name = input("Please enter a name: ")
+   phone = input("Please enter a new phone number: ")
+   email = input("Please enter a new E-mail: ")
+   tmpDict [name] = {}
+   tmpDict [name]['name'] = name
+   tmpDict [name]['phone']= phone
+   tmpDict [name]['email']= email
+   return tmpDict
+
+def deleteName (tmpDict):
+  print ("Choose the name which you want to delete")
+  print(adress_book.keys())
+  name = input("Please enter a name: ")
+  tmpDict.pop (name)
+  return tmpDict
+
+def detailsName (tmpDict):
+  print ("Choose the name which you want to see details")
+  print(adress_book.keys())
+  name = input("Please enter a name: ")
+  print(adress_book[name])
+  return tmpDict
+
+question = int(input("What do you want to do:\n edit a name - press 1,\n add a name - press 2,\n delete a name- press 3,\n to see details of the name- press 4\n "))
+if question == 2:
+    adress_book = addName(adress_book)
+elif question == 1:
+  adress_book = editName(adress_book)
+elif question ==3: 
+  adress_book = deleteName(adress_book)
+elif question ==4:  
+  adress_book = detailsName(adress_book)
+else :
+  print ("Goodbye") 
+print(adress_book)
